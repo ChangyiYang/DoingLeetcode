@@ -1,5 +1,5 @@
-x = [1,2,3]
+from collections import defaultdict
 
-x[0:2] = 'AB'
+x = defaultdict(lambda : (None,None))
 
-print(x)
+print(x[1])
