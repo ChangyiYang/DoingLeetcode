@@ -45,10 +45,45 @@ class Solution:
         print(max_l, max_r)
         
         return min(max_r, max_l)
+
+
+
+class Solution:
+    def longestValidParentheses(self, s: str) -> int:
+        
+        length = len(s)
+        
+        stack = [-1]
+
+
+        max_l = 0
+        for i in range(length):
+            # print('__________')
+            # print(i)
+            # print(stack)
+            # print(max_l)
+
+            c = s[i]
+            if c == '(':
+                stack.append(i)
+                continue
+
+            x = stack.pop()
+                
+            if stack == []:
+                stack.append(i)
+                continue
+            
+            max_l = max(max_l, i - stack[-1])
+
+
+                
+        
+        return max_l
     
 x = Solution()
 
-print(x.longestValidParentheses("))))())()()(()"))
+print(x.longestValidParentheses("(())"))
                 
             
             
