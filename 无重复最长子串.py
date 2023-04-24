@@ -31,6 +31,35 @@ class Solution:
 x = Solution()
 
 print(x.lengthOfLongestSubstring('1223'))
+
+
+# https://leetcode.cn/problems/longest-substring-without-repeating-characters/
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
+        # sliding window
+        subs = ''
+
+        result = 0
+        for i, s in enumerate(s):
+            # print(subs)
+
+            result = max(len(subs), result)
+
+            if s not in subs:
+                subs += s
+                continue
+
+            if s in subs:
+                subs = subs[subs.index(s)+1 :]
+                subs += s
+
+        result = max(len(subs), result)
+        return result
+
+            
+
         
         
         
